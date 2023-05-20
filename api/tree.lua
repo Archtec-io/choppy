@@ -165,12 +165,12 @@ function api.find_treetop(base_pos, node, player_name)
 		if not node_type then
 			return false
 		end
-
+		--[[
 		local def = registered_nodes[target_node_name] or {}
 		if def.paramtype == "placed_by_player" and target_node.param1 > 0 then
 			return false
 		end
-
+		]]--
 		return node_type
 	end
 

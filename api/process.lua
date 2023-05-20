@@ -92,12 +92,12 @@ function Process:is_valid_target(pos)
 	if not node_type then
 		return false
 	end
-
+	--[[
 	local def = minetest.registered_nodes[node_name] or {}
 	if def.paramtype == "placed_by_player" and node.param1 > 0 then
 		return false
 	end
-
+	]]--
 	return node_type
 end
 

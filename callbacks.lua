@@ -4,7 +4,7 @@ local resolve_item = futil.resolve_item
 
 local api = choppy.api
 local halo_size = choppy.settings.halo_size
-
+--[[
 minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 	if not api.is_tree_node(node.name, "trunk") then
 		-- not a tree trunk
@@ -51,7 +51,7 @@ minetest.register_on_placenode(function(pos, newnode, placer, oldnode, itemstack
 		end
 	end
 end)
-
+]]--
 minetest.register_globalstep(function(dtime)
 	for _, player in ipairs(minetest.get_connected_players()) do
 		local player_name = player:get_player_name()
@@ -90,7 +90,7 @@ minetest.register_on_mods_loaded(function()
 			local resolved = resolve_item(node)
 			if resolved then
 				nodes[resolved] = type
-
+				--[[
 				-- indicate that a node is natural or placed by a player
 				local node_def = minetest.registered_nodes[resolved]
 				local paramtype = node_def.paramtype
@@ -98,7 +98,7 @@ minetest.register_on_mods_loaded(function()
 					minetest.override_item(resolved, {
 						paramtype = "placed_by_player",
 					})
-				end
+				end]]--
 			end
 		end
 		def.nodes = nodes
